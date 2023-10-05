@@ -1,4 +1,10 @@
+using Auth_Servise.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+/* Подключение AutoMapper */
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 /*Add configuration*/
 builder.Configuration.AddJsonFile("Configuration/smtpSettings.json");
@@ -8,6 +14,12 @@ builder.Configuration.AddJsonFile("Configuration/databaseSettings.json");
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+/* Подключение базы данных */
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 var app = builder.Build();
 
