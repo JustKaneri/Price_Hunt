@@ -7,7 +7,7 @@
         /// </summary>
         /// <param name="password">пароль</param>
         /// <param name="salt">ключ</param>
-        /// <returns>Хэш</returns>
+        /// <returns>Хэш пароля</returns>
         public string ComputeHash(string password, string salt);
 
         /// <summary>
@@ -16,7 +16,7 @@
         /// <param name="hash">хэш пароля</param>
         /// <param name="password">пароль</param>
         /// <param name="salt">ключ для хэширования</param>
-        /// <returns>True если совпали, False если не совпали</returns>
+        /// <returns>True если хэши совпали, False если хэши не совпали</returns>
         public bool Verifications(string hash, string password, string salt);
     }
 }

@@ -1,4 +1,6 @@
 using Auth_Servise.Data;
+using Auth_Servise.IntefaceRepository;
+using Auth_Servise.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,11 @@ builder.Configuration.AddJsonFile("Configuration/smtpSettings.json");
 builder.Configuration.AddJsonFile("Configuration/rabbitSettings.json");
 builder.Configuration.AddJsonFile("Configuration/databaseSettings.json");
 
+/* Подключение зависимостей */
+builder.Services.AddScoped<IPasswordRepository, PasswordRepository>();
+
+
+/* Остальные сервисы */
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
