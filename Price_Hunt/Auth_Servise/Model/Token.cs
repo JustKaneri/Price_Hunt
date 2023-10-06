@@ -1,11 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Auth_Servise.Interface;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auth_Servise.Model
 {
     [Table("Token")]
-    public class Token
+    public class Token : IDbModel
     {
         /* Первичный ключ */
         [Key]

@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Auth_Servise.Interface;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auth_Servise.Model
 {
     [Table("User")]
-    public class User
+    public class User : IDbModel
     {
         /* Первичный ключ */
         [Key]
