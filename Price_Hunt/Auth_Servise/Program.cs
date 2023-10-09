@@ -1,5 +1,6 @@
 using Auth_Servise.Data;
 using Auth_Servise.IntefaceRepository;
+using Auth_Servise.Model;
 using Auth_Servise.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,8 @@ builder.Configuration.AddJsonFile("Configuration/databaseSettings.json");
 
 /* Подключение зависимостей */
 builder.Services.AddScoped<IPasswordRepository, PasswordRepository>();
-
+builder.Services.AddScoped<ITokeRepository<Token>, TokenRepositroy>();
+builder.Services.AddScoped<IEmailCheck, EmailCheck>();
 
 /* Остальные сервисы */
 builder.Services.AddControllers();
