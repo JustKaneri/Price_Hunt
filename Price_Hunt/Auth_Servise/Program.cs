@@ -19,6 +19,7 @@ builder.Services.AddScoped<IPasswordRepository, PasswordRepository>();
 builder.Services.AddScoped<ITokeRepository<Token>, TokenRepositroy>();
 builder.Services.AddScoped<IEmailCheck, EmailCheck>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
+builder.Services.AddScoped<ITokenGenerate,TokenGenerate>();
 
 /* Остальные сервисы */
 builder.Services.AddControllers();
