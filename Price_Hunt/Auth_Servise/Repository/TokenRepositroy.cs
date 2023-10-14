@@ -18,6 +18,14 @@ namespace Auth_Servise.Repository
 
         public async Task<Token> CreateAsync(Token entity)
         {
+            Token token = await _context.Tokens.Where(tk => tk.UserId == entity.UserId && tk.IsVailid).FirstOrDefaultAsync();
+
+            if(token != null)
+            {
+                Console.WriteLine("Token is exist");
+                throw new Exception("Token is exist");
+            }
+
             try
             {
                 _context.Tokens.Add(entity);
@@ -68,7 +76,7 @@ namespace Auth_Servise.Repository
                 throw new Exception("User not indentification");
             }
 
-            Token token = await _context.Tokens.Where(tk => tk.UserId == user.Id).FirstOrDefaultAsync();
+            Token token = await _context.Tokens.Where(tk => tk.UserId == user.Id && tk.IsVailid).FirstOrDefaultAsync();
 
             if(token == null)
             {
