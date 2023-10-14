@@ -9,11 +9,13 @@ namespace Auth_Servise.Repository
     {
         private readonly DataContext _context;
         private readonly IEmailCheck _emailCheck;
+        private readonly IPasswordRepository _passwordRepository;
 
-        public UserRepository(DataContext context, IEmailCheck emailCheck)
+        public UserRepository(DataContext context, IEmailCheck emailCheck, IPasswordRepository passwordRepository)
         {
             _context = context;
             _emailCheck = emailCheck;
+            _passwordRepository = passwordRepository;
         }
 
         public async Task<User> CreateAsync(User entity)
@@ -42,6 +44,25 @@ namespace Auth_Servise.Repository
             }
 
             return entity;
+        }
+
+        public async Task<User> IdentificationUser(string email, string password)
+        {
+            User user = await _context.Users.Where(us => us.Email == email).FirstOrDefaultAsync();
+
+            if(user == null)
+            {
+                Console.WriteLine("User not found");
+                throw new Exception("User not found");
+            }
+
+            if(!_passwordRepository.Verifications(user.PasswordHash,password,user.Salt)
+            {
+                Console.WriteLine("Password not correct");
+                throw new Exception("Password not correct");
+            }
+
+            return user;
         }
 
         public async Task<User> IsExist(string email)

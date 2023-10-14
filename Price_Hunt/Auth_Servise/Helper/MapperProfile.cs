@@ -8,7 +8,7 @@ namespace Auth_Servise.Helper
     {
         public MapperProfile()
         {
-            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserRegestryDto>().ReverseMap();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Auth_Servise.Dto
 {
-    public class UserDto
+    public class UserRegestryDto
     {
         [Required]
         public string Name { get; set; }
