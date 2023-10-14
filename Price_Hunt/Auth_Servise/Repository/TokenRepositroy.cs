@@ -8,10 +8,12 @@ namespace Auth_Servise.Repository
     public class TokenRepositroy : ITokeRepository<Token>
     {
         private readonly DataContext _context;
+        private readonly IUserRepository<User> _userRepository;
 
-        public TokenRepositroy(DataContext context)
+        public TokenRepositroy(DataContext context,IUserRepository<User> userRepository)
         {
             _context = context;
+            _userRepository = userRepository;
         }
 
         public async Task<Token> CreateAsync(Token entity)
@@ -54,6 +56,27 @@ namespace Auth_Servise.Repository
             }
 
             return foundResult;
+        }
+
+        public async Task<Token> GetToken(string email, string password)
+        {
+            User user = await _userRepository.IdentificationUser(email, password);
+
+            if(user == null)
+            {
+                Console.WriteLine("User not indentification");
+                throw new Exception("User not indentification");
+            }
+
+            Token token = await _context.Tokens.Where(tk => tk.UserId == user.Id).FirstOrDefaultAsync();
+
+            if(token == null)
+            {
+                Console.WriteLine("Token not found");
+                throw new Exception("Token not found");
+            }
+
+            return token;
         }
 
         public async Task<bool> IsActived(string token)

@@ -17,5 +17,13 @@ namespace Auth_Servise.IntefaceRepository
         /// <param name="token">токен</param>
         /// <returns>Объект с токеном</returns>
         public Task<T> DeactivationAsync(string token);
+
+        /// <summary>
+        /// Получить токен
+        /// </summary>
+        /// <param name="email">электронная почта</param>
+        /// <param name="password">пароль</param>
+        /// <returns>Токен</returns>
+        public Task<T> GetToken(string email,string password);
     }
 }
