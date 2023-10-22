@@ -20,7 +20,19 @@ namespace Auth_Servise.Controllers.v1
         [HttpPost("authorization")]
         public async Task<IActionResult> Auth(UserRegestryDto user)
         {
-            Token token = await _regestryRepository.Regestry(user);
+            Token token = new Token();
+
+            try
+            {
+               token = await _regestryRepository.Regestry(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+            
 
             return Ok(token);
         }
