@@ -1,0 +1,12 @@
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\bin\Debug\net6.0\RabbitDataLibrary.deps.json
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\bin\Debug\net6.0\RabbitDataLibrary.dll
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\bin\Debug\net6.0\RabbitDataLibrary.pdb
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.csproj.AssemblyReference.cache
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.AssemblyInfoInputs.cache
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.AssemblyInfo.cs
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.csproj.CoreCompileInputs.cache
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.dll
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\refint\RabbitDataLibrary.dll
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\RabbitDataLibrary.pdb
+A:\Project\Price_Hunt\Price_Hunt\RabbitDataLibrary\obj\Debug\net6.0\ref\RabbitDataLibrary.dll

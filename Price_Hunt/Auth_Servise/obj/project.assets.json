@@ -590,6 +590,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "RabbitDataLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RabbitDataLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RabbitDataLibrary.dll": {}
+        }
       }
     }
   },
@@ -1525,6 +1535,11 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "RabbitDataLibrary/1.0.0": {
+      "type": "project",
+      "path": "../RabbitDataLibrary/RabbitDataLibrary.csproj",
+      "msbuildProject": "../RabbitDataLibrary/RabbitDataLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1535,6 +1550,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0",
+      "RabbitDataLibrary >= 1.0.0",
       "RabbitMQ.Client >= 6.6.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -1575,7 +1591,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "A:\\Project\\Price_Hunt\\Price_Hunt\\RabbitDataLibrary\\RabbitDataLibrary.csproj": {
+              "projectPath": "A:\\Project\\Price_Hunt\\Price_Hunt\\RabbitDataLibrary\\RabbitDataLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

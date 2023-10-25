@@ -1,9 +1,11 @@
-﻿namespace Auth_Servise.IntefaceRepository
+﻿using Auth_Servise.Interface;
+using Auth_Servise.Repository;
+using RabbitDataLibrary.Interface;
+
+namespace Auth_Servise.IntefaceRepository
 {
     public interface IRabbitMQRepository
     {
-        public Task<Boolean> Notification(object obj);
-
-        public Task<List<Boolean>> Notifications(object obj);
+        public Task<Boolean> SendMessage<T>(T obj, string host, string exchange) where T : IRabbitModel;
     }
 }
