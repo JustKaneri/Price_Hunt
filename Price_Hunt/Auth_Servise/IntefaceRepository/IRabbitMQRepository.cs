@@ -6,6 +6,6 @@ namespace Auth_Servise.IntefaceRepository
 {
     public interface IRabbitMQRepository
     {
-        public Task<Boolean> SendMessage<T>(T obj, string host, string exchange) where T : IRabbitModel;
+        public void SendMessage<T>(T obj, string host, string exchange) where T : IRabbitModel;
     }
 }

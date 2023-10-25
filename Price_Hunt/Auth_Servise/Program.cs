@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 /*Add configuration*/
-builder.Configuration.AddJsonFile("Configuration/smtpSettings.json");
 builder.Configuration.AddJsonFile("Configuration/rabbitSettings.json");
 builder.Configuration.AddJsonFile("Configuration/databaseSettings.json");
 
@@ -21,6 +20,7 @@ builder.Services.AddScoped<IEmailCheck, EmailCheck>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
 builder.Services.AddScoped<ITokenGenerate,TokenGenerate>();
 builder.Services.AddScoped<IRegestryRepository,RegestryRepository>();
+builder.Services.AddScoped<IRabbitMQRepository, RabbitMqRepository>();
 
 /* Остальные сервисы */
 builder.Services.AddControllers();

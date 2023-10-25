@@ -56,7 +56,7 @@ namespace Auth_Servise.Repository
                 throw new Exception("User not found");
             }
 
-            if(!_passwordRepository.Verifications(user.PasswordHash,password,user.Salt)
+            if(!_passwordRepository.Verifications(user.PasswordHash,password,user.Salt))
             {
                 Console.WriteLine("Password not correct");
                 throw new Exception("Password not correct");
