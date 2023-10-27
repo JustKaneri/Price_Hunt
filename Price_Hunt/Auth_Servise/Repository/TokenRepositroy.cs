@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Auth_Servise.Repository
 {
-    public class TokenRepositroy : ITokeRepository<Token>
+    public class TokenRepositroy : ITokenRepository<Token>
     {
         private readonly DataContext _context;
         private readonly IUserRepository<User> _userRepository;

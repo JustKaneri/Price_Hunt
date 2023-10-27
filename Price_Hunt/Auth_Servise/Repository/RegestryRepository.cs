@@ -13,7 +13,7 @@ namespace Auth_Servise.Repository
         private readonly IMapper _mapper;
         private readonly IPasswordRepository _passwordRepository;
         private readonly IUserRepository<User> _userRepository;
-        private readonly ITokeRepository<Token> _tokeRepository;
+        private readonly ITokenRepository<Token> _tokeRepository;
         private readonly ITokenGenerate _tokenGenerate;
 
         public enum TypeUser
@@ -25,7 +25,7 @@ namespace Auth_Servise.Repository
         public RegestryRepository(DataContext context,IMapper mapper,
                                   IPasswordRepository passwordRepository,
                                   IUserRepository<User> userRepository,
-                                  ITokeRepository<Token> tokeRepository,
+                                  ITokenRepository<Token> tokeRepository,
                                   ITokenGenerate tokenGenerate)
         {
             _context = context;

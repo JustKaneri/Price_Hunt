@@ -15,7 +15,7 @@ builder.Configuration.AddJsonFile("Configuration/databaseSettings.json");
 
 /* Подключение зависимостей */
 builder.Services.AddScoped<IPasswordRepository, PasswordRepository>();
-builder.Services.AddScoped<ITokeRepository<Token>, TokenRepositroy>();
+builder.Services.AddScoped<ITokenRepository<Token>, TokenRepositroy>();
 builder.Services.AddScoped<IEmailCheck, EmailCheck>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
 builder.Services.AddScoped<ITokenGenerate,TokenGenerate>();

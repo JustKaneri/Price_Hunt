@@ -2,7 +2,7 @@
 
 namespace Auth_Servise.IntefaceRepository
 {
-    public interface ITokeRepository<T>: ICreator<T>, IRecoil<T> where T : IDbModel
+    public interface ITokenRepository<T>: ICreator<T>, IRecoil<T> where T : IDbModel
     {
         /// <summary>
         /// Проверка действителен ли токен
