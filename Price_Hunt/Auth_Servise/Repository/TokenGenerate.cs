@@ -10,13 +10,13 @@ namespace Auth_Servise.Repository
     {
         public string GenerateToken(User user)
         {
-            byte[] byteToHash = Encoding.UTF8.GetBytes(user.Name +"_"+user.TypeUser.Name);
+            byte[] byteToHash = Encoding.UTF8.GetBytes(user.Name +"_" + user.Id);
 
             byte[] saltBytes = Encoding.UTF8.GetBytes(user.Salt);
 
             var byteResult = new Rfc2898DeriveBytes(byteToHash, saltBytes, 10000);
 
-            return Convert.ToBase64String(byteResult.GetBytes(24)) + Guid.NewGuid().ToString().Substring(0,11);
+            return Convert.ToBase64String(byteResult.GetBytes(24)) + Guid.NewGuid().ToString();
 
         }
     }

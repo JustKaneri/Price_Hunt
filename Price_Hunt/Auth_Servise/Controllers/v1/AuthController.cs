@@ -45,7 +45,7 @@ namespace Auth_Servise.Controllers.v1
 
             _rabbitMQRepository.SendMessage<UserCreatRabbit>(createUser, host, exchange);
 
-            return Ok(token);
+            return Ok(token.UserToken);
         }
     }
 }

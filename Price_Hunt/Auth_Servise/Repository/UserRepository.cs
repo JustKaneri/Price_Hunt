@@ -20,7 +20,7 @@ namespace Auth_Servise.Repository
 
         public async Task<User> CreateAsync(User entity)
         {
-            if(IsExist(entity.Email) != null)
+            if(await IsExist(entity.Email) != null)
             {
                 Console.WriteLine("User is exist");
                 throw new Exception("User is exist");
@@ -67,7 +67,9 @@ namespace Auth_Servise.Repository
 
         public async Task<User> IsExist(string email)
         {
-            return await _context.Users.Where(us => us.Email == email).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(us => us.Email == email).FirstOrDefaultAsync();
+
+            return user;
         }
 
         public async Task<User> RecoilAsync(User entity)

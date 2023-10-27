@@ -52,7 +52,7 @@ namespace Auth_Servise.Repository
                 }
                 catch (Exception ex)
                 {
-                    await db.RollbackAsync();
+                    db.Rollback();
                     Console.WriteLine(ex.Message);
                     throw new Exception(ex.Message);
                 }
