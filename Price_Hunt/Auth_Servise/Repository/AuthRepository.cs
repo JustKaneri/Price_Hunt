@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Auth_Servise.Repository
 {
-    public class RegestryRepository : IRegestryRepository
+    public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
@@ -22,7 +22,7 @@ namespace Auth_Servise.Repository
             User = 2
         }
 
-        public RegestryRepository(DataContext context,IMapper mapper,
+        public AuthRepository(DataContext context,IMapper mapper,
                                   IPasswordRepository passwordRepository,
                                   IUserRepository<User> userRepository,
                                   ITokenRepository<Token> tokeRepository,
@@ -79,6 +79,47 @@ namespace Auth_Servise.Repository
             token.IsVailid = true;
             token.UserToken = _tokenGenerate.GenerateToken(user);
             token.UserId = user.Id;
+
+            return token;
+        }
+
+        public async Task<Token> CreateToken(string email, string password)
+        {
+            var user = await _userRepository.IsExist(email);
+
+            if(user == null)
+            {
+                Console.WriteLine("User not exist");
+                throw new Exception("User not exist");
+            }
+
+            if (!_passwordRepository.Verifications(user.PasswordHash, password, user.Salt))
+            {
+                Console.WriteLine("Password not correct");
+                throw new Exception("Password not correct");
+            }
+
+            Token token = await _tokeRepository.GetToken(email, password);
+
+            using (var db = await _context.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    token = await _tokeRepository.DeactivationAsync(token.UserToken);
+
+                    token = TokenFormat(user);
+
+                    token = await _tokeRepository.CreateAsync(token);
+
+                    await db.CommitAsync();
+                }
+                catch (Exception ex)
+                {
+                    db.Rollback();
+                    Console.WriteLine(ex.Message);
+                    throw new Exception(ex.Message);
+                }
+            }
 
             return token;
         }

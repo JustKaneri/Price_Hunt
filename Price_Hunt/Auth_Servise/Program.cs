@@ -19,7 +19,7 @@ builder.Services.AddScoped<ITokenRepository<Token>, TokenRepositroy>();
 builder.Services.AddScoped<IEmailCheck, EmailCheck>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
 builder.Services.AddScoped<ITokenGenerate,TokenGenerate>();
-builder.Services.AddScoped<IRegestryRepository,RegestryRepository>();
+builder.Services.AddScoped<IAuthRepository,AuthRepository>();
 builder.Services.AddScoped<IRabbitMQRepository, RabbitMqRepository>();
 
 /* Остальные сервисы */

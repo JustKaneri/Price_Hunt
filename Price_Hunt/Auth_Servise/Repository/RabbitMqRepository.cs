@@ -18,7 +18,10 @@ namespace Auth_Servise.Repository
             {
                 using (var chanel = con.CreateModel())
                 {
-                    chanel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: null, body: message);
+                    var properties = chanel.CreateBasicProperties();
+                    properties.Persistent = true;
+
+                    chanel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: message);
                 }
             }
 

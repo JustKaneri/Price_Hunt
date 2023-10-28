@@ -10,11 +10,11 @@ namespace Auth_Servise.Controllers.v1
     [Route("api/v1")]
     public class AuthController : Controller
     {
-        private readonly IRegestryRepository _regestryRepository;
+        private readonly IAuthRepository _regestryRepository;
         private readonly IRabbitMQRepository _rabbitMQRepository;
         private readonly IConfiguration _configuration;
 
-        public AuthController(IRegestryRepository regestryRepository,IRabbitMQRepository rabbitMQRepository ,IConfiguration configuration)
+        public AuthController(IAuthRepository regestryRepository,IRabbitMQRepository rabbitMQRepository ,IConfiguration configuration)
         {
             _regestryRepository = regestryRepository;
             _rabbitMQRepository = rabbitMQRepository;
