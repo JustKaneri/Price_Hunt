@@ -27,6 +27,11 @@ namespace Auth_Servise.Controllers.v1
             _authRepository = authRepository;
         }
 
+        /// <summary>
+        /// Проверка активен ли токен
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         [HttpGet("token/valid")]
         public async Task<IActionResult> ValidToken(string token)
         {
@@ -43,6 +48,12 @@ namespace Auth_Servise.Controllers.v1
             }
         }
 
+        /// <summary>
+        /// Получить токен
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("token")]
         public async Task<IActionResult> GetToken(string email,string password)
         {
@@ -59,6 +70,12 @@ namespace Auth_Servise.Controllers.v1
             }
         }
 
+        /// <summary>
+        /// Получить новый токен
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost("token")]
         public async Task<IActionResult> CreateTokne(string email, string password)
         {
@@ -84,6 +101,12 @@ namespace Auth_Servise.Controllers.v1
             }
         }
 
+        /// <summary>
+        /// Деактивировать токен
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpDelete("token")]
         public async Task<IActionResult> DestroyToken(string email,string password)
         {

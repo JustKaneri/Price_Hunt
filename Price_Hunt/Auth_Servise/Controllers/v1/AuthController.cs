@@ -21,7 +21,11 @@ namespace Auth_Servise.Controllers.v1
             _configuration = configuration;
         }
 
-
+        /// <summary>
+        /// Регистрация нового пользователя
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("authorization")]
         public async Task<IActionResult> Auth(UserRegestryDto user)
         {
