@@ -84,5 +84,21 @@ namespace Auth_Servise.Controllers.v1
             }
         }
 
+        [HttpDelete("token")]
+        public async Task<IActionResult> DestroyToken(string email,string password)
+        {
+            try
+            {
+                var token = await _tokenRepository.GetToken(email, password);
+
+                var result = await _tokenRepository.DeactivationAsync(token.UserToken);
+
+                return Ok("Token deactivation");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
